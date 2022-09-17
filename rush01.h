@@ -18,7 +18,7 @@ void	ft_putstr(char *str);
 
 int		solve(char *input);
 
-int	**init_map(void);
+int	    **build_map(void);
 void	print_map(int **map);
 
 #endif
