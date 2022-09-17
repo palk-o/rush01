@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 10:19:48 by aperin            #+#    #+#             */
-/*   Updated: 2022/09/17 12:51:07 by aperin           ###   ########.fr       */
+/*   Created: 2022/09/17 12:54:51 by aperin            #+#    #+#             */
+/*   Updated: 2022/09/17 13:16:01 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush01.h"
+#include <stdlib.h>
 
-int	invalid_format(char *str)
+int	**init_map(void)
 {
+	int	**map;
 	int	i;
+	int	j;
 
 	i = 0;
-	if (ft_strlen(str) != 31)
-		return (1);
-	while (i < 31)
+	map = (int**)malloc(4 * sizeof(int));
+	if (map == 0)
+		return (0);
+	while (i < 4)
 	{
-		if (i % 2 == 1 && str[i] != ' ')
-			return (1);
-		if (i % 2 == 0 && (str[i] < '1' || str[i] > '4'))
-			return (1);
+		map[i] = (int*)malloc(4 * sizeof(int));
+		if (map[i] == 0)
+			return (0);
 		i++;
-	}	return (0);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (argc != 2 || invalid_format(argv[1]))
-	{
-		ft_putstr("Error\n");
-		return (0);
 	}
-	if (!solve(argv[1]))
+	i = 0;
+	while (i < 4)
 	{
-		ft_putstr("Error\n");
-		return (0);
+		j = 0;
+		while (j < 4)
+		{
+			map[i][j] = '0';
+			j++;
+		}
+		i++;
 	}
-	return (0);
+	return (map);
 }
