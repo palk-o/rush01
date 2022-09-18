@@ -62,6 +62,7 @@ int	solved(int **map, int *views)
 	i = 0;
 	while (i < 16 && curr_views[i] == views[i])
 		i++;
+	free(curr_views);
 	if (i == 16)
 		return (1);
 	return (0);

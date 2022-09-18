@@ -6,7 +6,7 @@
 /*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:41:27 by aperin            #+#    #+#             */
-/*   Updated: 2022/09/18 13:59:56 by aperin           ###   ########.fr       */
+/*   Updated: 2022/09/18 14:03:14 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ int	solve_game(char *input)
 	if (!backtrack(&map, views, start))
 		return (0);
 	print_map(map);
+	free(map);
+	free(views);
 	return (1);
 }
