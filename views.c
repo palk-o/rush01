@@ -1,8 +1,20 @@
-int get_colup(int **map, int col)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   views.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/18 13:55:50 by aperin            #+#    #+#             */
+/*   Updated: 2022/09/18 13:57:37 by aperin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	get_colup(int **map, int col)
 {
-	int i;
-	int j;
-	int view;
+	int	i;
+	int	j;
+	int	view;
 
 	i = 1;
 	view = 1;
@@ -17,16 +29,16 @@ int get_colup(int **map, int col)
 		}
 		if (j == -1)
 			view++;
-        i++;
+		i++;
 	}
 	return (view);
 }
 
-int get_coldown(int **map, int col)
+int	get_coldown(int **map, int col)
 {
-	int i;
-	int j;
-	int view;
+	int	i;
+	int	j;
+	int	view;
 
 	i = 2;
 	view = 1;
@@ -41,16 +53,16 @@ int get_coldown(int **map, int col)
 		}
 		if (j == 4)
 			view++;
-        i--;
+		i--;
 	}
 	return (view);
 }
 
-int get_row_left(int **map, int row)
+int	get_row_left(int **map, int row)
 {
-    int i;
-	int j;
-	int view;
+	int	i;
+	int	j;
+	int	view;
 
 	i = 1;
 	view = 1;
@@ -65,16 +77,16 @@ int get_row_left(int **map, int row)
 		}
 		if (j == -1)
 			view++;
-        i++;
+		i++;
 	}
 	return (view);
 }
 
-int get_row_right(int **map, int row)
+int	get_row_right(int **map, int row)
 {
-	int i;
-	int j;
-	int view;
+	int	i;
+	int	j;
+	int	view;
 
 	i = 2;
 	view = 1;
@@ -89,7 +101,7 @@ int get_row_right(int **map, int row)
 		}
 		if (j == 4)
 			view++;
-        i--;
+		i--;
 	}
 	return (view);
 }

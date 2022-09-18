@@ -6,7 +6,7 @@
 /*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:54:51 by aperin            #+#    #+#             */
-/*   Updated: 2022/09/17 14:06:01 by aperin           ###   ########.fr       */
+/*   Updated: 2022/09/18 13:51:57 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ int	**build_map(void)
 	int	i;
 
 	i = 0;
-	map = (int**)malloc(4 * sizeof(int*));
+	map = (int **)malloc(4 * sizeof(int *));
 	if (map == 0)
 		return (0);
 	while (i < 4)
 	{
-		map[i] = (int*)malloc(4 * sizeof(int));
+		map[i] = (int *)malloc(4 * sizeof(int));
 		if (map[i] == 0)
 			return (0);
 		i++;

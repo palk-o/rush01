@@ -6,7 +6,7 @@
 /*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 10:19:48 by aperin            #+#    #+#             */
-/*   Updated: 2022/09/17 12:51:07 by aperin           ###   ########.fr       */
+/*   Updated: 2022/09/18 13:50:43 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	invalid_format(char *str)
 		if (i % 2 == 0 && (str[i] < '1' || str[i] > '4'))
 			return (1);
 		i++;
-	}	return (0);
+	}
+	return (0);
 }
 
 int	main(int argc, char *argv[])

@@ -6,7 +6,7 @@
 /*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 12:41:27 by aperin            #+#    #+#             */
-/*   Updated: 2022/09/17 14:34:30 by aperin           ###   ########.fr       */
+/*   Updated: 2022/09/18 13:59:56 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	extract_input(char *input, int **view)
 	}
 }
 
-int backtrack(int ***map, int *views, int *pos)
+int	backtrack(int ***map, int *views, int *pos)
 {
 	if (pos[0] == -1 && pos[1] == -1)
 	{
@@ -58,7 +58,7 @@ int	solve_game(char *input)
 {
 	int	**map;
 	int	*views;
-	int start[2];
+	int	start[2];
 
 	map = build_map();
 	views = malloc(16 * sizeof(int));

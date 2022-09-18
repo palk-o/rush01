@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rules.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aperin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/18 13:57:57 by aperin            #+#    #+#             */
+/*   Updated: 2022/09/18 13:59:17 by aperin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rush01.h"
 #include <stdlib.h>
 
-int duplicate(int **map, int *pos)
+int	duplicate(int **map, int *pos)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < pos[0])
@@ -22,11 +34,9 @@ int duplicate(int **map, int *pos)
 	return (0);
 }
 
-
-
-int *get_views(int **map, int **curr_views)
+int	*get_views(int **map, int **curr_views)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
@@ -40,10 +50,10 @@ int *get_views(int **map, int **curr_views)
 	return (*curr_views);
 }
 
-int		solved(int **map, int *views)
+int	solved(int **map, int *views)
 {
-	int *curr_views;
-	int i;
+	int	*curr_views;
+	int	i;
 
 	curr_views = malloc(16 * sizeof(int));
 	if (curr_views == 0)
