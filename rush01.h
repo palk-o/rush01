@@ -16,9 +16,19 @@
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 
-int		solve(char *input);
+int		solve_game(char *input);
 
+int		*next_pos(int *pos);
+int		*prev_pos(int *pos);
 int	    **build_map(void);
 void	print_map(int **map);
+
+int		duplicate(int **map, int *pos);
+int		solved(int **map, int *rules);
+
+int get_colup(int **map, int col);
+int get_coldown(int **map, int col);
+int get_row_left(int **map, int row);
+int get_row_right(int **map, int row);
 
 #endif

@@ -36,7 +36,7 @@ int	main(int argc, char *argv[])
 		ft_putstr("Error\n");
 		return (0);
 	}
-	if (!solve(argv[1]))
+	if (!solve_game(argv[1]))
 	{
 		ft_putstr("Error\n");
 		return (0);

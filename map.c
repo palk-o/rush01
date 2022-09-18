@@ -13,6 +13,40 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int	*next_pos(int *pos)
+{
+	if (pos[1] < 3)
+		pos[1]++;
+	else if (pos[0] < 3)
+	{
+		pos[0]++;
+		pos[1] = 0;
+	}
+	else
+	{
+		pos[0] = -1;
+		pos[1] = -1;
+	}
+	return (pos);
+}
+
+int	*prev_pos(int *pos)
+{
+	if (pos[0] == -1 && pos[1] == -1)
+	{
+		pos[0] = 3;
+		pos[1] = 3;
+	}
+	if (pos[1] > 0)
+		pos[1]--;
+	else
+	{
+		pos[0]--;
+		pos[1] = 3;
+	}
+	return (pos);
+}
+
 void	init_map(int ***map)
 {
 	int	i;
@@ -67,7 +101,8 @@ void	print_map(int **map)
 		{
 			c = map[i][j] + 48;
 			write(1, &c, 1);
-			write(1, " ", 1);
+			if (j != 3)
+				write(1, " ", 1);
 			j++;
 		}
 		write(1, "\n", 1);

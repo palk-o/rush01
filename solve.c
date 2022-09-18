@@ -14,20 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void	print_tab(int *tab)
-{
-	int	i;
-
-	i = 0;
-	while (i < 16)
-	{
-		printf("%d ", tab[i]);
-		i++;
-	}
-	printf("\n");
-}
-
-void	extract_input(char *input, int **rule)
+void	extract_input(char *input, int **view)
 {
 	int	i;
 	int	j;
@@ -36,23 +23,52 @@ void	extract_input(char *input, int **rule)
 	j = 0;
 	while (i < 31)
 	{
-		(*rule)[j] = input[i] - 48;
+		(*view)[j] = input[i] - 48;
 		i += 2;
 		j++;
 	}
 }
 
-int	solve(char *input)
+int backtrack(int ***map, int *views, int *pos)
+{
+	if (pos[0] == -1 && pos[1] == -1)
+	{
+		if (solved(*map, views))
+			return (1);
+		else
+			return (backtrack(map, views, prev_pos(pos)));
+	}
+	else if ((*map)[pos[0]][pos[1]] < 4)
+	{
+		(*map)[pos[0]][pos[1]] += 1;
+		if (duplicate(*map, pos))
+			return (backtrack(map, views, pos));
+		return (backtrack(map, views, next_pos(pos)));
+	}
+	else if (!(pos[0] == 0 && pos[1] == 0))
+	{
+		(*map)[pos[0]][pos[1]] = 0;
+		return (backtrack(map, views, prev_pos(pos)));
+	}
+	else
+		return (0);
+}
+
+int	solve_game(char *input)
 {
 	int	**map;
-	int	*rule;
+	int	*views;
+	int start[2];
 
 	map = build_map();
-	rule = malloc(16 * sizeof(int));
-	if (rule == 0)
+	views = malloc(16 * sizeof(int));
+	if (views == 0)
 		return (0);
-	extract_input(input, &rule);
+	extract_input(input, &views);
+	start[0] = 0;
+	start[1] = 0;
+	if (!backtrack(&map, views, start))
+		return (0);
 	print_map(map);
-	print_tab(rule);
 	return (1);
 }
